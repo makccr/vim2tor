@@ -8,8 +8,8 @@ on:
 env:
   PACKAGE_NAME: vim2tor
   VERSION: ${{ github.ref_name }}
-  DEB_BUILD_DIR: release/debian
-  ARCH_BUILD_DIR: release/arch
+  DEB_BUILD_DIR: debian
+  ARCH_BUILD_DIR: arch
   HOME_DIR: ${{ github.workspace }}
 
 jobs:
