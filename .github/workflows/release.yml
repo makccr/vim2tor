@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Debian packaging tools
         run: sudo apt-get update && sudo apt-get install -y debhelper devscripts lintian
@@ -28,7 +28,7 @@ jobs:
         working-directory: ${{ env.DEB_BUILD_DIR }}
 
       - name: Upload Debian package artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${PACKAGE_NAME}-deb
           path: ../*.deb
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Arch Linux docker container
         run: |
@@ -46,7 +46,7 @@ jobs:
             makepkg -sf"
           
       - name: Upload Arch package artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${PACKAGE_NAME}-arch
           path: arch/*.pkg.tar.zst
@@ -55,14 +55,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Create Homebrew source tarball
         run: |
           git archive --format=tar.gz --prefix=${PACKAGE_NAME}-${VERSION#v}/ ${{ github.ref }} > ${PACKAGE_NAME}-${VERSION#v}.tar.gz
 
       - name: Upload Homebrew tarball
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${PACKAGE_NAME}-homebrew-tarball
           path: ${PACKAGE_NAME}-${VERSION#v}.tar.gz
@@ -72,19 +72,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Debian package artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: vim2tor-deb
           path: ./artifacts/deb
 
       - name: Download Arch package artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: vim2tor-arch
           path: ./artifacts/arch
 
       - name: Download Homebrew tarball artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: vim2tor-homebrew-tarball
           path: ./artifacts/homebrew
