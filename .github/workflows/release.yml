@@ -1,0 +1,131 @@
+name: Build and Release Packages
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+env:
+  PACKAGE_NAME: vim2tor
+  VERSION: ${{ github.ref_name }}
+  DEB_BUILD_DIR: release/debian
+  ARCH_BUILD_DIR: release/arch
+  HOME_DIR: ${{ github.workspace }}
+
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Install Debian packaging tools
+        run: sudo apt-get update && sudo apt-get install -y debhelper devscripts lintian
+
+      - name: Build Debian package
+        run: |
+          dpkg-buildpackage -us -uc -b
+        working-directory: ${{ env.DEB_BUILD_DIR }}
+
+      - name: Upload Debian package artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${PACKAGE_NAME}-deb
+          path: ../*.deb
+
+  build-arch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Set up Arch Linux docker container
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/src -w /src/arch archlinux:latest /bin/bash -c "\
+            pacman -Sy --noconfirm base-devel git && \
+            makepkg -sf"
+          
+      - name: Upload Arch package artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${PACKAGE_NAME}-arch
+          path: arch/*.pkg.tar.zst
+
+  build-homebrew:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Create Homebrew source tarball
+        run: |
+          git archive --format=tar.gz --prefix=${PACKAGE_NAME}-${VERSION#v}/ ${{ github.ref }} > ${PACKAGE_NAME}-${VERSION#v}.tar.gz
+
+      - name: Upload Homebrew tarball
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${PACKAGE_NAME}-homebrew-tarball
+          path: ${PACKAGE_NAME}-${VERSION#v}.tar.gz
+
+  release:
+    needs: [build-deb, build-arch, build-homebrew]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Debian package artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: vim2tor-deb
+          path: ./artifacts/deb
+
+      - name: Download Arch package artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: vim2tor-arch
+          path: ./artifacts/arch
+
+      - name: Download Homebrew tarball artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: vim2tor-homebrew-tarball
+          path: ./artifacts/homebrew
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Debian package to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./artifacts/deb/*.deb
+          asset_name: vim2tor-${{ github.ref_name }}.deb
+          asset_content_type: application/vnd.debian.binary-package
+
+      - name: Upload Arch package to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./artifacts/arch/*.pkg.tar.zst
+          asset_name: vim2tor-${{ github.ref_name }}.pkg.tar.zst
+          asset_content_type: application/x-tar
+
+      - name: Upload Homebrew tarball to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./artifacts/homebrew/*.tar.gz
+          asset_name: vim2tor-${{ github.ref_name }}.tar.gz
+          asset_content_type: application/gzip
