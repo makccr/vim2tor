@@ -1,7 +1,7 @@
 <a href="https://makc.co">
     <img src="https://makc.co/images/github-header.svg" alt="MAKC lgoo" title="MAKC" align="right" height="50" />
 </a>
-<img src="https://raw.githubusercontent.com/makccr/vim2tor/refs/heads/main/head-1280px.png" alt="vim2tor logo" title="vim2tor" width="70%" align="center" />
+<img src="https://raw.githubusercontent.com/makccr/vim2tor/refs/heads/main/src/head-1280px.png" alt="vim2tor logo" title="vim2tor" width="70%" align="center" />
 
 ---
 
