@@ -1,0 +1,253 @@
+===============================================================================
+=                       Welcome to vim2tor - Version 1.0                      =
+===============================================================================
+
+	vim2tor is an application built as a supplement to the original
+	VIM Tutor application that comes pre-packaged with the Vim 
+	application.
+
+	This application assumes that the user is already familiar with
+	lessons 1.1 - 7.3 as they are presented in the VIM Tutor 
+	application. If you are unfamiliar with these lessons, open a
+	terminal and run the command: `vimtutor` 
+
+===============================================================================
+=                      Lesson 1: CREATING AND SAVING FILES                    =
+===============================================================================
+
+                   Lesson 1.1: SAVING & QUITING THE APPLICATION
+
+	1. The original `vimtutor` application demonstrates multiple ways
+	   to save a file and close the application. To simplify things: 
+
+		Type: 	:w <ENTER>	To save a file in Vim
+		Type: 	:q <ENTER> 	To exit Vim without saving
+		Type: 	:wq <ENTER> 	To save your file and exit Vim
+
+	2. However, there is a far faster or better way to execute some 
+	   commands: 
+
+		Type: 	:x <ENTER> 	To save your file and exit Vim
+		Type: 	:qa! <ENTER> 	To exit Vim without any prompt to 
+					save changes or any warning
+
+===============================================================================
+
+                        Lesson 1.2: CREATING A NEW FILE
+
+	1. `vimtutor` offers a few different ways to open previously
+	   existing files, however, it fails to mention perhaps the 
+	   easiest way to create a new file. 
+
+		FROM THE COMMAND LINE 
+		Type: 	vim FILE.ext	To create a new file with the 
+					            name "FILE.ext" in your current
+					            directory
+	
+	NOTE: The file will not be available on your current directory until
+	      you save the file using either: 	:w <ENTER> 
+					      	                    or 
+						                    :x <ENTER> 
+
+===============================================================================
+=                         Lesson 1.3: OPENING PRE-EXITING FILES               =
+===============================================================================
+
+	1. As mentioned in 'vimtuor', perhaps the easiest way to open 
+	   a file, if you are already in the Vim application is to: 
+
+		Type:	:r FILENAME	To open a previously exiting file
+					replacing the current file, if 
+					one file is open. 
+	2. However, there are far more ways to open files that already
+	   exist, the easiest is Netrw, Vim's built in file explorer.
+
+		Type: 	:Explore	To open a full screen Netrw 
+					        window. 
+		Type: 	:Sex		To open a Netrw window along
+					        the bottom of your screen.
+		Type: 	:Lex		Top open a Netrw window to the
+					        left of your screen.
+
+===============================================================================
+=                         Lesson 1.4: USING MARKS                             =
+===============================================================================
+
+	1. Marks allow you to quickly jump to important locations in your
+	   file without searching.
+
+		Type:	m{letter}	Mark the current cursor position 
+					with a letter (a–z).
+		Type:	'{letter}	Jump to the *line* of the mark.
+		Type:	`{letter}	Jump to the *exact position* of 
+					the mark.
+
+	EXAMPLE:
+		ma		Mark current spot as "a"
+		'a		Jump back to the line of mark a
+		`a		Jump back to the exact cursor spot
+
+===============================================================================
+=            Lesson 1.5: JUMPING TO START OR END OF FILE OR LINE              =
+===============================================================================
+
+	1. Use these commands to move instantly to the beginning or end
+	   of a file without scrolling:
+
+		Type:	gg		Go to the very first line of the file
+		Type:	G		Go to the very last line of the file
+
+    2. Additionally there are commands to jump to the front or back of an
+       individual line. 
+
+        Type: 0             Goes to the start of a line
+        Type: A <SHIFT>+a   Goes to the end of a line
+
+	NOTE: You can combine G with a number to jump to that line number.
+	      For example: 15G  Goes to line 15
+
+    NOTE: There are additional ways to navigate on a line by line basis 
+          that very well might be worth additional research on your part. 
+          One of my favorite is the commands `(` and `)', which allow you
+          to move backward and forward one sentence at a time respectively.
+
+===============================================================================
+=                    Lesson 1.6: SEARCH IN A VISUAL SELECTION                 =
+===============================================================================
+
+	1. Visual mode search and replace is a quick way to limit changes
+	   to just the text you select.
+
+		STEPS:
+		- Press:	v		Enter visual mode
+		- Move cursor		Highlight desired text
+		- Press:	:		Start a command
+		- Type:		s/pattern/replacement/g
+		- Press:	<ENTER>		Execute replacement
+
+===============================================================================
+=                  Lesson 1.7: INCREMENT & DECREMENT NUMBERS                  =
+===============================================================================
+
+	1. Vim can change numbers under your cursor without typing them
+	   manually.
+
+		Type:	<C-a>		Increment number under cursor
+		Type:	<C-x>		Decrement number under cursor
+
+	2. Add a count to change by more than 1:
+		Type:	5<C-a>		Add 5 to the number
+
+===============================================================================
+=              Lesson 1.8: REPEATING LAST COMMAND-LINE COMMAND                =
+===============================================================================
+
+	1. To repeat the last ':' command you ran:
+		Type:	@:		Repeat it
+
+	2. To repeat the last macro executed:
+		Type:	@@		Repeat last macro
+
+===============================================================================
+=                    Lesson 1.9: CHANGING CASE QUICKLY                        =
+===============================================================================
+
+	1. Change the case of characters or motions:
+
+		Type:	~		Toggle case of character under cursor
+		Type:	gU{motion}	Uppercase the motion
+		Type:	gu{motion}	Lowercase the motion
+
+	EXAMPLES:
+		gUw		Uppercase a word
+		gu}		Lowercase a paragraph
+
+===============================================================================
+=                      Lesson 1.10: REPEAT LAST CHANGE                        =
+===============================================================================
+
+	1. The '.' command repeats your last change — one of Vim's most
+	   powerful features.
+
+	EXAMPLES:
+		- Delete a word with:	dw
+		- Move to another word and type:	.
+		  (The new word is deleted too)
+
+===============================================================================
+=                     Lesson 1.11: USING THE JUMPS LIST                       =
+===============================================================================
+
+	1. Vim remembers where your cursor has been so you can jump back
+	   and forth between locations.
+
+		Type:	<C-o>		Jump backward to older positions
+		Type:	<C-i>		Jump forward to newer positions
+
+===============================================================================
+=              Lesson 1.12: READING EXTERNAL COMMAND OUTPUT                   =
+===============================================================================
+
+	1. You can insert the output of a shell command directly into your
+	   file.
+
+		Type:	:r !command	Replace 'command' with any shell 
+					command.
+
+	EXAMPLE:
+		:r !ls		Inserts the file list of current directory
+
+===============================================================================
+=                     Lesson 1.13: COMMAND-LINE WINDOW                        =
+===============================================================================
+
+	1. Edit and replay previous commands in a full-screen view.
+
+		Type:	q:		Open ':' command history
+		Type:	q/		Open '/' search history
+
+===============================================================================
+=                    Lesson 1.14: TEXT OBJECTS IN DEPTH                       =
+===============================================================================
+
+	1. Text objects act on structured units of text.
+
+	EXAMPLES:
+		ciw		Change inner word
+		cit		Change inside tag (HTML/XML)
+		ci"		Change inside quotes
+		dap		Delete a paragraph
+
+===============================================================================
+=                     Lesson 1.15: RECORDING MACROS                           =
+===============================================================================
+
+	1. Macros let you record and replay keystrokes.
+
+		Type:	q{register}	Start recording into a register
+		Type:	q		Stop recording
+		Type:	@{register}	Replay macro from register
+		Type:	@@		Replay last executed macro
+
+===============================================================================
+=                   Lesson 1.16: USING EX MODE RANGES                         =
+===============================================================================
+
+	1. Ex commands can target specific line ranges.
+
+	EXAMPLES:
+		:.,+5s/foo/bar/g	Replace in current line through
+					5 lines down
+		:%s/foo/bar/g		Replace in entire file
+		:'<,'>s/foo/bar/g	Replace in visual selection
+
+===============================================================================
+=                  Lesson 1.17: MOVING BETWEEN WINDOWS                        =
+===============================================================================
+
+		When using :Lex or other split windows:
+		Type:	Ctrl+w w		Cycle to the next window
+		Type:	Ctrl+w h		Move to the window on the left
+		Type:	Ctrl+w l		Move to the window on the right
+		Type:	Ctrl+w k		Move to the window above
+		Type:	Ctrl+w j		Move to the window below
