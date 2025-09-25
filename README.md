@@ -11,6 +11,7 @@ A successor to the popular `vimtutor` program that comes packaged with the stand
 ## Lessons
 <details>
 <summary>View all current lessons</summary>
+
 * **1.1** CREATING AND SAVING FILES
 * **1.2** CREATING A NEW FILE
 * **1.3** FILE EXPLORERS
@@ -28,6 +29,7 @@ A successor to the popular `vimtutor` program that comes packaged with the stand
 * **1.15** RECORDING MACROS
 * **1.16** USING EX MODE RANGES
 * **1.17** MOVING BETWEEN WINDOWS
+
 </details>
 
 ## Installation
