@@ -28,25 +28,3 @@ A slightly easier, but still unobtrusive install method that enables full functi
   
 ### Video Guide
 [![Watch the video](https://img.youtube.com/vi/xjKU4qb4CN4/maxresdefault.jpg)](https://youtu.be/xjKU4qb4CN4)
-
----
-
-## Current vim2tor Lessons
-
-* **1.1:** More ways to save and quit
-* **1.2:** Quickly making new files
-* **1.3:** Netrw (Vim's File Explorer)
-* **1.4:** Using Marks
-* **1.5:** Jump to the start or end of a file
-* **1.6:** Search in a visual selection
-* **1.7:** Increment & decrement numerical values
-* **1.8:** Repeat last command line command
-* **1.9:** Change case quickly
-* **1.10:** Repeat last change 
-* **1.11:** Using the jumps list
-* **1.12:** Reading and exterinal shell command
-* **1.13:** Manipulating the command line window 
-* **1.14:** Text objects (Change Inside)
-* **1.15:** Recording Macros
-* **1.16:** Using Ex Mode rnages
-* **1.17:** Navigating multiple windows
