@@ -8,6 +8,63 @@
 
 A successor to the popular `vimtutor` program that comes packaged with the standard [Vim application](https://www.vim.org/). vim2tor continues where `vimtutor` left off and provides an interactive environment to learn intermediate commands and text manipulation tools in Vim.
 
+## Lessons
+<details>
+<summary>View all current lessons</summary>
+
+#### Lesson 1.1
+CREATING AND SAVING FILES
+
+#### Lesson 1.2
+CREATING A NEW FILE
+
+#### Lesson 1.3
+FILE EXPLORERS
+
+#### Lesson 1.4
+USING MARKS
+
+#### Lesson 1.5
+JUMPING TO START OR END OF FILE OR LINE
+
+#### Lesson 1.6
+SEARCH IN A VISUAL SELECTION
+
+#### Lesson 1.7
+INCREMENT & DECREMENT NUMBERS
+
+#### Lesson 1.8
+REPEATING LAST COMMAND-LINE COMMAND
+
+#### Lesson 1.9 
+CHANGING CASE QUICKLY
+
+#### Lesson 1.10
+REPEAT LAST CHANGE
+
+#### Lesson 1.11
+USING THE JUMPS LIST
+
+#### Lesson 1.12
+READING EXTERNAL COMMAND OUTPUT
+
+#### Lesson 1.13
+COMMAND-LINE WINDOW
+
+#### Lesson 1.14
+TEXT OBJECTS IN DEPTH
+
+#### Lesson 1.15
+RECORDING MACROS
+
+#### Lesson 1.16
+USING EX MODE RANGES
+
+#### Lesson 1.17
+MOVING BETWEEN WINDOWS
+
+</details>
+
 ## Installation
 There are several ways to install vim2tor. A few of my favorites are listed below:
 
