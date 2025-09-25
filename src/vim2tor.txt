@@ -1,12 +1,16 @@
-Welcome to vim2tor - Version 1.01
-================================
+
+
+
+
+Welcome to vim2tor
+==================
 
 vim2tor is an application built as a supplement to the original VIM Tutor application that comes pre-packaged with the Vim application.
 
 This application assumes that the user is already familiar with lessons 1.1 - 7.3 as they are presented in the VIM Tutor application. If you are unfamiliar with these lessons, open a terminal and run the command: `vimtutor` 
 
 
-Lesson 1.1 : CREATING AND SAVING FILES
+Lesson 1.1: CREATING AND SAVING FILES
 ======================================
 
 1. The original `vimtutor` application demonstrates multiple ways to save a file and close the application. To simplify things: 
