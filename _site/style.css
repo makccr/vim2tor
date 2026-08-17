@@ -3,8 +3,8 @@
 :root {
     --bg: #000000; 
     --mid: #999; 
-    --fg: #0c0;
-    --hover: #0f9;
+    --fg: #0a0;
+    --hover: #0f0;
 }
 
 * { 
@@ -17,7 +17,28 @@
     display: block; 
     margin-left: auto; 
     margin-right: auto;
+    animation: crt 2.7s infinite steps(1); 
 }
+
+    @keyframes crt {
+        0%   { opacity: 1; filter: brightness(1); }
+        12%  { opacity: .95; }
+        13%  { opacity: .72; filter: brightness(.8); }
+        14%  { opacity: 1; }
+        31%  { opacity: 1; }
+        32%  { opacity: .85; }
+        33%  { opacity: .95; }
+        34%  { opacity: .65; filter: brightness(.7); }
+        35%  { opacity: 1; filter: brightness(1); }
+        57%  { opacity: 1; }
+        58%  { opacity: .9; }
+        59%  { opacity: .75; }
+        60%  { opacity: 1; }
+        78%  { opacity: 1; }
+        79%  { opacity: .8; filter: brightness(.85); }
+        80%  { opacity: 1; filter: brightness(1); }
+        100% { opacity: 1; }
+    }
 
 a { 
     text-decoration: none;
