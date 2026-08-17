@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 
 :root {
     --bg: #000000; 
     --mid: #999; 
     --fg: #0a0;
+    --fg-white: #bbb; 
     --hover: #0f0;
 }
 
@@ -46,7 +50,7 @@ a {
     display: inline; 
 }
 
-p {
+.links p {
     color: var(--fg);
     padding: 1em; 
     font-size: 1.3em;
@@ -67,6 +71,35 @@ a:hover p {
     transition: .5s; 
 }
 
+footer {
+    margin-right: 20rem; 
+    margin-left: 20rem;
+    text-align: center; 
+    margin-bottom: 5em; 
+}
+
+footer p {
+    color: var(--fg-white); 
+    font-family: "Open Sans", sans-serif; 
+    font-weight: 500; 
+}
+
+#footer-links a {
+    padding: 1em; 
+    text-transform: uppercase; 
+    text-align: center; 
+    font-size: 1.2em; 
+}
+
+footer a {
+    color: var(--fg);
+}
+
+footer a:hover {
+    transition: .3s; 
+    color: var(--hover);
+}
+
 @media (max-width: 640px) {
 
     .hero {
@@ -78,6 +111,16 @@ a:hover p {
     }
 
     p {
+        display: block; 
+    }
+
+    footer {
+        margin-right: 1rem; 
+        margin-left: 1rem; 
+        text-align: center; 
+    }
+
+    .links p {
         display: block; 
     }
 
