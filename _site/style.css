@@ -1,0 +1,47 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+:root {
+    --bg: #000000; 
+    --mid: #999; 
+    --fg: #0c0;
+    --hover: #0f9;
+}
+
+* { 
+    background-color: var(--bg); 
+    align: center; 
+}
+
+.hero {
+    width: 75%; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+a { 
+    text-decoration: none;
+    text-align: center; 
+    display: inline; 
+}
+
+p {
+    color: var(--fg);
+    padding: 1em; 
+    font-size: 1.3em;
+    font-family: "Inconsolata", monospace;
+    font-style: normal;
+    font-weight: 500; 
+    text-align: center; 
+    display: inline-block; 
+}
+
+.links {
+    text-align: center; 
+    margin-bottom: 10em;
+}
+
+a:hover p {
+    color: var(--hover);
+    transition: .5s; 
+}
