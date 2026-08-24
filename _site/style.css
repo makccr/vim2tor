@@ -21,7 +21,7 @@
     display: block; 
     margin-left: auto; 
     margin-right: auto;
-    animation: crt 2.7s infinite steps(1); 
+    animation: crt 1s infinite steps(1); 
 }
 
     @keyframes crt {
