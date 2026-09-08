@@ -12,8 +12,11 @@
 }
 
 * { 
-    background-color: var(--bg); 
     align: center; 
+}
+
+html {
+    background-color: var(--bg);
 }
 
 .hero {
@@ -88,7 +91,7 @@ footer p {
     padding: 1em; 
     text-transform: uppercase; 
     text-align: center; 
-    font-size: 1.2em; 
+    font-size: 1em; 
 }
 
 footer a {
@@ -118,6 +121,10 @@ footer a:hover {
         margin-right: 1rem; 
         margin-left: 1rem; 
         text-align: center; 
+    }
+
+    #footer-links a {
+        display: block; 
     }
 
     .links p {
